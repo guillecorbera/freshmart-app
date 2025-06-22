@@ -1,0 +1,404 @@
+/* src/components/Footer.css */
+
+.footer-section {
+  background: linear-gradient(
+    to bottom,
+    #3e4f66 0%,
+    #2f394d 50%,
+    #141a25 100%
+  );
+  color: #9ca3af; /* text-gray-300 */
+  padding: 3rem 1rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.footer-description {
+  font-size: 0.875rem;
+  color: #d1d5db;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-socials a {
+  color: #a3afc6;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: white;
+}
+
+.footer-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #d1d5db;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #10b981;
+}
+
+.footer-contact li {
+  margin-bottom: 0.5rem;
+  color: #d1d5db;
+  font-size: 0.875rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid #374151;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.footer-author-button {
+  color: #10b981;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.footer-author-button:hover {
+  color: #059669;
+}
+
+/* Blur cuando modal está abierto */
+.blur {
+  filter: blur(2px);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+
+.dark .modal-body p{
+  color:#9ca3af;
+}
+/* Contenido del modal */
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Animación de entrada */
+.modal-content.animated.fadeInUp {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.modal-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-body p {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+  
+}
+
+/* .modal-whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2563eb;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+} */
+
+/* Botón de cierre */
+.modal-close-button {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #0077FF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.modal-close-button:hover {
+  background-color: #3e98ff;
+}
+
+/* .modal-whatsapp-button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25D366;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(37, 211, 102, 0.0);
+}
+
+.modal-whatsapp-button-icon:hover {
+  background-color: #128C7E;
+}
+*/
+
+.modal-whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25D366;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  justify-self: center; /* Centra dentro del contenedor padre si es necesario */
+}
+
+.modal-whatsapp-button:hover {
+  background-color: #128C7E;
+}
+
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-contact-button {
+  margin-top: 1rem;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.footer-contact-button:hover {
+  background-color: #3e98ff;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.success-message {
+  text-align: center;
+  padding: 1rem;
+}
+
+.contact-form .recaptcha-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.modal-cancel-button {
+  margin-top: 0.5rem;
+  background-color: #9ca3af; /* gris suave */
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.modal-cancel-button:hover {
+  background-color: #6b7280;
+}
+
+.modal-button-group {
+  display: flex;
+  flex-wrap: wrap; /* Para que no rompan layout en pantallas muy pequeñas */
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+/* En móviles (pantallas menores a 768px) */
+@media (max-width: 768px) {
+  .modal-button-group {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .modal-action-button {
+    width: 100%;
+    max-width: 300px; /* Limita el ancho máximo en móvil */
+    text-align: center;
+  }
+}
+
+
+.modal-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+
+  /* Tamaño fijo opcional */
+  width: 140px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+
+.modal-button-group button {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Estilo común para todos los botones del modal */
+.modal-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+
+  /* Fijamos el ancho exacto */
+  width: 140px; /* Puedes ajustar este valor según necesites */
+  flex-shrink: 0; /* Para que no se encogean ni se estiren */
+  text-align: center;
+   flex: 1 1 50%; /* Ambos ocupan el 50% */
+  min-width: 0; /* Evita que el texto los agrande */
+  max-width: 100%; /* Prevenir overflow */
+}
+
+/* Botón de enviar */
+.modal-send-button {
+  background-color: #25D366;
+  color: white;
+  height: 44px;
+}
+
+.modal-send-button:hover {
+  background-color: #128C7E;
+}
+
+/* Botón de cancelar */
+.modal-cancel-button {
+  background-color: #ef4444; /* rojo */
+  color: white;
+height: 44px;
+}
+
+.modal-cancel-button:hover {
+  background-color: #dc2626; /* rojo más oscuro */
+}

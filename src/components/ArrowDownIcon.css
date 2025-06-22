@@ -1,0 +1,14 @@
+/* src/components/ArrowDownIcon.css */
+
+.arrow-down-icon {
+  width: 1rem;        /* w-4 */
+  height: 1rem;       /* h-4 */
+  color: #059669;     /* text-emerald-600 */
+  margin-top: 0.25rem; /* mt-1 */
+  transition: transform 0.2s ease;
+}
+
+/* Opcional: efecto al hacer hover */
+.arrow-down-icon:hover {
+  transform: translateY(2px);
+}

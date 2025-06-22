@@ -1,0 +1,117 @@
+import { useState } from 'react';
+import ArrowDownIcon from './ArrowDownIcon';
+
+// Importar imágenes locales
+import resintImg from '../assets/resint.jpg';
+import resextImg from '../assets/resext.jpg';
+import indusImg from '../assets/indus.jpg';
+import decorImg from '../assets/decor.jpg';
+import imperImg from '../assets/imper.jpg';
+import reparImg from '../assets/repar.jpg';
+
+export default function Categories() {
+  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+
+  const categories = [
+    {
+      id: 'resint',
+      name: 'Pintura Residencial Interior',
+      image: resintImg,
+      description: 'Incluye trabajos de pintura en paredes, techos, molduras y detalles decorativos dentro de viviendas particulares.'
+    },
+    {
+      id: 'resext',
+      name: 'Pintura Residencial Exterior',
+      image: resextImg,
+      description: 'Cubre pintura en fachadas, muros exteriores, ventanas, puertas y otros elementos visibles del hogar.'
+    },
+    {
+      id: 'indus',
+      name: 'Pintura Comercial e Industrial',
+      image: indusImg,
+      description: 'Aplicada en oficinas, centros comerciales, bodegas, naves industriales y otros espacios dedicados a actividades laborales o empresariales.'
+    },
+    {
+      id: 'decor',
+      name: 'Pintura Decorativa y Diseño de Interiores',
+      image: decorImg,
+      description: 'Incluye técnicas especiales como texturizados, estampados, pintura en relieve, colores combinados y otros acabados estéticos.'
+    }, 
+    {
+      id: 'imper',
+      name: 'Impermeabilización y Protecciones superficiales',
+      image: imperImg,
+      description: 'Trabajos relacionados con la aplicación de productos que protegen las superficies contra la humedad, el clima y el desgaste.'
+    },
+    {
+      id: 'repar',
+      name: 'Reparación y Mantenimiento de Superficies Pintadas',
+      image: reparImg,
+      description: 'Incluye lijado, retoques, eliminación de grietas, humedad y restauración de áreas dañadas antes de volver a pintar.'
+    }
+  ];
+
+  const handleCategoryClick = (categoryId) => {
+    setSelectedCategoryId(prevId => (prevId === categoryId ? null : categoryId));
+  };
+
+  return (
+    <section id="categories" className="py-16 bg-gray-100">
+      {/* <div className="container mx-auto px-4"> */}
+      <div className="container mx-auto px-6 sm:px-8 md:px-12 max-w-7xl">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">Categorías</h2>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+{categories.map((category) => (
+  <div key={category.id} className="flex flex-col items-center relative">
+    <button
+      type="button"
+      onClick={() => handleCategoryClick(category.id)}
+      className="group flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out h-56 w-full box-border border border-transparent hover:border-emerald-400"
+    >
+      <img
+        src={category.image}
+        alt={`${category.name} Category`}
+        className="w-24 h-24 mx-auto mb-2 rounded-full border-2 border-emerald-200 group-hover:border-emerald-600 group-hover:ring-2 group-hover:ring-emerald-300 transition-all duration-300"
+      />
+      <span className="font-semibold text-gray-800 group-hover:text-emerald-700 text-sm sm:text-base text-center transition-colors duration-300 mt-2">
+        {category.name}
+      </span>
+    </button>
+
+    {/* Icono flecha abajo - Fuera del botón y posicionado absolutamente */}
+    {selectedCategoryId === category.id && (
+      <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
+        <ArrowDownIcon />
+      </div>
+    )}
+
+    {/* Mostrar descripción debajo */}
+    {selectedCategoryId === category.id && (
+      <div 
+        className="mt-2 p-3 bg-white rounded-lg shadow-sm text-sm text-gray-600 w-full text-center animate-fadeIn"
+        style={{ animation: 'fadeIn 0.4s ease forwards' }}
+      >
+        <p>{category.description}</p>
+      </div>
+    )}
+
+    {/* Espaciador invisible para mantener altura uniforme cuando no hay descripción */}
+    {selectedCategoryId !== category.id && <div className="h-12"></div>}
+  </div>
+))}
+        </div>
+      </div>
+
+      {/* Animación personalizada */}
+      <style >{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(5px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+    style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)', backdropFilter: 'blur(5px)' }}>

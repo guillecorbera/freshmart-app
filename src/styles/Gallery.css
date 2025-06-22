@@ -1,0 +1,42 @@
+/* src/components/Gallery.css */
+
+.dark .gallery-section {
+  background: linear-gradient(to right, #1e293b, #0f172a); /* dark:from-gray-800 dark:to-gray-900 */
+}
+
+/* Cambios añadidos aquí 👇 */
+.dark .gallery-title {
+  color: #f3f4f6; /* text-white o text-gray-100 */
+}
+
+.dark .gallery-paragraph,
+.dark .gallery-paragraph a {
+  color: #d1d5db; /* text-gray-300 */
+}
+
+
+
+.gallery-section {
+  padding: 4rem 1rem;
+  background-color: white;
+}
+
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.gallery-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #1f2937; /* text-gray-800 */
+  margin-bottom: 2.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}

@@ -1,0 +1,64 @@
+
+/* src/index.css */
+/* src/index.css */
+
+:root {
+  --font-main: 'Inter', sans-serif;
+  --font-alt: 'Roboto', sans-serif;
+  --font-oxygen: 'Oxygen', sans-serif;
+  --font-ubuntu: 'Ubuntu', sans-serif;
+  --font-cantarell: 'Cantarell', sans-serif;
+}
+
+/* Aplica la fuente principal a todo el cuerpo */
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  color: #1f2937;
+  background-color: #ffffff;
+}
+
+/* Modo oscuro */
+.dark body {
+  color: #d1d5db;
+  background-color: #1f2937;
+}
+
+/* Títulos con estilo */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Inputs, botones y formularios también usan la fuente principal */
+button, input, textarea, select {
+  font-family: var(--font-main);
+  font-size: 1rem;
+}
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 1rem;
+}
+
+.swiper-pagination-bullet {
+  background-color: #10b981; /* Color verde esmeralda */
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #059669;
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.page {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.page.enter-active {
+  opacity: 1;
+}
