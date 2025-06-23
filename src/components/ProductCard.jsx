@@ -1,4 +1,3 @@
-// src/components/ProductCard.jsx
 import { useState } from 'react';
 import { detallesData } from '../data/detalles';
 import '../styles/ProductCard.css';
@@ -22,6 +21,15 @@ export default function ProductCard({ product }) {
 
   // Validar que sea un array
   const validImages = Array.isArray(images) ? images : [images];
+
+  // Funciones para navegar entre imágenes
+  const goToPrevious = () => {
+    setCurrentImageIndex((prev) => (prev === 0 ? validImages.length - 1 : prev - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentImageIndex((prev) => (prev === validImages.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <>
@@ -48,16 +56,30 @@ export default function ProductCard({ product }) {
         <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <PhotoProvider>
-              {validImages.map((img, index) => (
-                <PhotoView key={index} src={img}>
+              <div className="carousel-container">
+                {/* Botón anterior con SVG */}
+                <button className="carousel-button prev" onClick={goToPrevious} aria-label="Imagen anterior">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="carousel-icon">
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
+                </button>
+
+                {/* Imagen actual */}
+                <PhotoView key={currentImageIndex} src={validImages[currentImageIndex]}>
                   <img
-                    src={img}
-                    alt={`Imagen ${index + 1}`}
+                    src={validImages[currentImageIndex]}
+                    alt={`Imagen ${currentImageIndex + 1}`}
                     className="modal-image"
-                    style={{ display: index === currentImageIndex ? 'block' : 'none' }}
                   />
                 </PhotoView>
-              ))}
+
+                {/* Botón siguiente con SVG */}
+                <button className="carousel-button next" onClick={goToNext} aria-label="Imagen siguiente">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="carousel-icon">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
             </PhotoProvider>
 
             {/* Texto personalizado encima de la imagen */}
